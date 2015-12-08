@@ -2,97 +2,54 @@
   'use strict';
 
   angular.module('iChing')
-    .controller('IChingCtrl', IChingCtrl);
-  function IChingCtrl($scope) {
+    .controller('iChingCtrl', iChingCtrl)
+    .controller('HexagramCtrl', HexagramCtrl);
+
+  function iChingCtrl($scope, $state, figures) {
     var ic = this;
+    ic.figures = figures;
+    ic.consult = consult;
+    ic.ask = ask;
+    ic.linesArray = figures.hexagram.array;
 
-    // 1 = Yang
-    // 0 = Yin
+    // 1 = Yang   (solid line)
+    // 0 = Yin    (broken line)
 
-    ic.trigrams = [
-      {
-        name: 'Heaven',
-        zhong: 'qian',
-        wen: '\u4E7E',
-        order: 0,
-        sequence: [1, 1, 1]
-      },
-      {
-        name: 'Thunder',
-        zhong: 'zhen',
-        wen: '\u9707',
-        order: 1,
-        sequence: [1, 0, 0]
-      },
-      {
-        name: 'Water',
-        zhong: 'kan',
-        wen: '\u574E',
-        order: 2,
-        sequence: [0, 1, 0]
-      },
-      {
-        name: 'Mountain',
-        zhong: 'gen',
-        wen: '\u826E',
-        order: 3,
-        sequence: [0, 0, 1]
-      },
-      {
-        name: 'Earth',
-        zhong: 'kun',
-        wen: '\u5764',
-        order: 4,
-        sequence: [0, 0, 0]
-      },
-      {
-        name: 'Wind',
-        zhong: 'xun',
-        wen: '\u5DFD',
-        order: 5,
-        sequence: [0, 1, 1]
-      },
-      {
-        name: 'Flame',
-        zhong: 'li',
-        wen: '\u96E2',
-        order: 6,
-        sequence: [1, 0, 1]
-      },
-      {
-        name: 'Lake',
-        zhong: 'dui',
-        wen: '\u514C',
-        order: 7,
-        sequence: [1, 1, 0]
+    function ask(){
+      var flatHexagram = [];
+      if(figures.hexagram.array.length < 6) {
+        figures.hexagram.addLine();
+        if(figures.hexagram.array.length % 3 == 0) {
+          var index = figures.hexagram.array.length === 3 ? 0 : 1;
+          _.each(figures.hexagram.array, function(a){ flatHexagram.push(a.value) });
+          var tr = _.chunk(flatHexagram, 3);
+          figures.hexagram.trigrams.push(_.find(figures.trigrams, function(t){
+            return _.isEqual(t.sequence, tr[index])
+          }));
+          window.console.log('figures.hexagram.array:', flatHexagram, figures.hexagram.trigrams);
+        }
+      } else {
+        var hexagram = _.find(figures.hexagrams, function(h){
+          return _.isEqual(h.trigrams, [figures.hexagram.trigrams[0].order, figures.hexagram.trigrams[1].order])
+        });
+        window.console.log('hexagram:', hexagram);
+        ic.consult();
       }
-    ];
-
-    ic.lookupTable = [
-      [1,  34, 5,  26, 11, 9,  14, 43],
-      [25, 51, 3,  27, 24, 42, 21, 17],
-      [6,  40, 29, 4,  7,  59, 64, 47],
-      [33, 62, 39, 52, 15, 53, 56, 31],
-      [12, 16, 8,  23, 2,  20, 35, 45],
-      [44, 32, 48, 18, 46, 57, 50, 28],
-      [13, 55, 63, 22, 36, 37, 30, 49],
-      [10, 54, 60, 41, 19, 61, 38, 58]
-    ];
-
-    // I Ching choosing each line
-    ic.hexagram = [null, null, null, null, null, null];
-    for(var i = 0; i < ic.hexagram.length; i++){
-      ic.hexagram.splice(i, 1, Math.round(_.random(0, 1, true)));
     }
-    // Get lower and upper trigrams
-    // Lower trigram
-    ic.lower = _.find(ic.trigrams, function(t){
-      return _.isEqual(t.sequence, _.slice(ic.hexagram, 0, 3));
-    });
-    // Outer trigram
-    ic.upper = _.find(ic.trigrams, function(t){
-      return _.isEqual(t.sequence, _.slice(ic.hexagram, 3));
-    });
-    ic.hexNumber = ic.lookupTable[ic.lower.order][ic.upper.order];
+
+    function consult(){
+      figures.consult().then(function(hexagram){
+        $state.transitionTo('consult.result', {hexId: hexagram.hexagram.number});
+        ic.hexagram = hexagram;
+      }, function(err){
+        window.console.log('err:', err);
+      });
+    }
+  }
+
+  function HexagramCtrl($stateParams, figures){
+    var hex = this;
+    hex.hexagram = figures.fetchHexagramById($stateParams.hexId);
+    window.console.log('hex.hexagram:', hex.hexagram);
   }
 })();

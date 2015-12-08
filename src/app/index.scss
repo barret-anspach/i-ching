@@ -23,18 +23,29 @@ body, html {
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
+  h1 {
+    font: 600 12pt/16pt 'brandon-grotesque';
+  }
+  h2 {
+    font: 400 12pt/16pt 'brandon-grotesque';
+  }
+  h3 {
+    font: 200 12pt/16pt 'brandon-grotesque';
+  }
 }
 
+// To display Chinese Unicode characters
+.wen {
+  font-family: 'source-han-sans-traditional', sans-serif;
+  font-size: 4em;
+  line-height: 1.8;
+  font-weight: 400;
+  //padding: 1em;
+  margin: 16px;
+  //color: white;
+  //background: $black;
+}
 
-h1 {
-  font: 600 12pt/16pt 'brandon-grotesque';
-}
-h2 {
-  font: 400 12pt/16pt 'brandon-grotesque';
-}
-h3 {
-  font: 200 12pt/16pt 'brandon-grotesque';
-}
 .text-align-right {
   text-align: right;
 }
@@ -49,18 +60,18 @@ button {
   font: 600 12pt/16pt 'brandon-grotesque';
   color: $black;
   -webkit-appearance: none;
-  padding: 3mm 5mm;
-  border: 1mm solid $black;
-  background: transparent;
-  transition-property: background, color;
+  background: none;
+  padding: 0 0 2mm;
+  border: none;
+  border-bottom: 1mm solid $black;
+  margin-top: 18mm;
+  transition-property: border-bottom-color, color;
   transition: .33s ease;
   &:hover,
   &:focus,
   &:active {
-    outline: none;
-    color: white;
-    background: $black;
-    background-clip: padding-box;
+    color: black;
+    border-bottom-color: black;
   }
 }
 
@@ -86,11 +97,7 @@ main {
 
 section.introduction,
 section.consider {
-  h1 {
-    font-size: 2em;
-    line-height: 1;
-    margin-bottom: 27mm;
-  }
+
 }
 
 
@@ -102,15 +109,26 @@ section.hexagram {
   flex: 0 0 auto;
   position: relative;
   display: block;
-  width: 32mm;
+  //width: 32mm;
   height: auto;
   & + & {
     margin-left: 8mm;
   }
 }
 .description {
-  margin-top: 1.83em;
+  max-width: 108mm;
+  padding: 0 4em;
+  margin: 1.83em auto 0;
   text-align: center;
+  h1 {
+    margin-bottom: 1em;
+  }
+  .wen {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-top: 8mm;
+    margin-bottom: 4.25mm;
+  }
 }
 
 // hexagram: Guà
@@ -126,7 +144,7 @@ section.hexagram {
 }
 
 // Horizontal lines
-// Unbroken line: Yang (1)
+// Solid line: Yang (1)
 .yang {
   position: relative;
   width: 100%;
@@ -140,34 +158,35 @@ section.hexagram {
 
 // Broken line: Yin (0)
 .yin {
-  @extend .yang;
+  position: relative;
+  width: 100%;
+  height: 2mm;
+  background: transparent;
+  margin-bottom: 3mm;
+  &:first-of-type {
+    margin-bottom: 0;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 12mm;
+    height: 2mm;
+    background: $black;
+  }
   &:after {
     content: '';
     position: absolute;
+    right: 0;
     top: 0;
-    left: 50%;
-    width: 8mm;
+    bottom: 0;
+    width: 12mm;
     height: 2mm;
-    background: white;
-    transform: translateX(-50%);
+    background: $black;
   }
 }
-
-// Display Trigram name in Chinese
-.trigram-name {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-.wen {
-  font-family: 'source-han-sans-traditional', sans-serif;
-  line-height: 1;
-  font-size: 2em;
-  font-weight: 100;
-  margin-right: 5mm;
-}
-
 
 
 // injector

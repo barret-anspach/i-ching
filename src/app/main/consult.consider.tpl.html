@@ -2,8 +2,26 @@
   <section class="consider text-align-center">
     <h1>Consider your question carefully.</h1>
 
-    <button ui-sref="consult.results">
-      <h3>Consult</h3>
+    <div class="gua">
+      <div ng-repeat="line in ic.linesArray track by $index"
+           class="line-{{$index + 1}}"
+           ng-class="{'yin': line.value == 0,
+                      'yang': line.value == 1}">
+      </div>
+
+    </div>
+
+    {{figures.hexagram}}
+
+    <button ng-click="ic.ask()">
+      <h1>Ask</h1>
     </button>
+    <button ng-if="figures.hexagram.array.length == 6"
+            ng-click="ic.consult()">
+      <h1>Continue</h1>
+    </button>
+    <!--<button ng-click="ic.consult()">-->
+      <!--<h1>Ask</h1>-->
+    <!--</button>-->
   </section>
 </main>

@@ -11,16 +11,16 @@ angular.module('iChing', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
         abstract: true,
         url: '/consult',
         template: '<div ui-view></div>',
-        controller: 'IChingCtrl',
-        controllerAs: 'ic'
+        controller: 'iChingCtrl as ic'
       })
       .state('consult.consider', {
         url: '/consider',
         templateUrl: 'app/main/consult.consider.tpl.html'
       })
-      .state('consult.results', {
-        url: '/results',
-        templateUrl: 'app/main/consult.results.tpl.html'
+      .state('consult.result', {
+        url: '/result?:hexId',
+        templateUrl: 'app/main/consult.result.tpl.html',
+        controller: 'HexagramCtrl as hex'
       })
       .state('consult.furtherStudy', {
         url: '/furtherStudy',
@@ -31,13 +31,17 @@ angular.module('iChing', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
     $urlRouterProvider.otherwise('/');
   })
 
-  .run(function($rootScope, $state){
-    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-      $rootScope.toState = toState;
-      window.console.log('to state:', toState);
-    });
-    $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
-      window.console.log('state', $state.current.name);
-    });
+  .run(function(){
+    //Parse.initialize("69VyY3XiWlAzccXb1Ox7NSC0oy05P65SmmyQ1lod", "DpeVZwARY1Oh5Gao6TzwLqCvwtTvUAxG1ZbWyl69");
   })
+
+  //.run(function($rootScope, $state){
+  //  $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+  //    $rootScope.toState = toState;
+  //    //window.console.log('to state:', toState);
+  //  });
+  //  $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
+  //    //window.console.log('state', $state.current.name);
+  //  });
+  //})
 ;

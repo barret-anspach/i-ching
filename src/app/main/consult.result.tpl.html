@@ -1,0 +1,16 @@
+<main class="i-ching">
+  <section class="hexagram">
+    <div class="gua">
+      <div ng-repeat="line in hex.hexagram.hexagram.sequence track by $index"
+           class="line-{{$index + 1}}"
+           ng-class="{'yin': line == 0,
+                      'yang': line == 1}">
+      </div>
+    </div>
+    <div class="description">
+      <h1>{{hex.hexagram.hexagram.number}}</h1>
+      <h1>{{hex.hexagram.hexagram.name}}</h1>
+      <h1 class="wen">{{hex.hexagram.hexagram.wen}}</h1>
+    </div>
+  </section>
+</main>
