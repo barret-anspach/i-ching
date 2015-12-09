@@ -2,7 +2,6 @@
   <section class="hexagram">
     <div class="gua">
       <div ng-repeat="line in hex.hexagram.hexagram.sequence track by $index"
-           class="line-{{$index + 1}}"
            ng-class="{'yin': line == 0,
                       'yang': line == 1}">
       </div>

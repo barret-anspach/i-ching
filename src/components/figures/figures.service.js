@@ -8,7 +8,7 @@
   // 1 = Yang   (solid line)
   // 0 = Yin    (broken line)
 
-  function figures($q){
+  function figures($q, $state){
     var service = this;
 
     service.trigrams = [
@@ -542,18 +542,50 @@
       this.lower = id ? fetchTrigram(id, 'lower') : random(service.trigrams, 'sequence');
       this.upper = id ? fetchTrigram(id, 'upper') : random(service.trigrams, 'sequence');
       this.hexagram = id ? fetchById(id) : fetchByTrigrams([this.lower['order'], this.upper['order']]);
-      //window.console.log('Hexagram:', this.hexagram);
       this.id = id ? _.parseInt(id) : this.hexagram.number;
 
-      this.array = [];
-      this.trigrams = [];
+      this.props = {
+        lines: [],
+        trigrams: [],
+        sequence: [],
+        hexagram: {}
+      };
+      this.isComplete = this.props.lines.length === 6;
 
       // METHODS
       this.addLine = function(){
-          var num = _.random(6, 9);
-          var line = num % 2 === 0 ? {value: 0, changing: num === 6} : {value: 1, changing: num === 9};
-          this.array.length < 6 ? this.array.push(line) : null;
-          window.console.log('array:', this.array);
+        var num = _.random(6, 9);
+        var line = num % 2 === 0 ?
+          {
+            value: 0,
+            changing: num === 6
+          } :
+          {
+            value: 1,
+            changing: num === 9
+          };
+        if(this.props.lines.length < 6){
+          this.props.lines.push(line);
+          this.props.sequence.push(line.value);
+        }
+        if(this.props.lines.length % 3 == 0){
+          var trigram = _.chunk(this.props.sequence, 3);
+          var index = this.props.lines.length == 3 ? 0 : 1;
+          this.props.trigrams.push(
+            _.find(service.trigrams, function(t){
+              return _.isEqual(t.sequence, trigram[index])
+            })
+          );
+          if(this.props.lines.length === 6){
+            var trigrams = this.props.trigrams;
+            this.props.hexagram = _.find(service.hexagrams, function(h){
+              return _.isEqual(h.trigrams, [trigrams[0].order, trigrams[1].order])
+            });
+            this.isComplete = true;
+            window.console.log('hexagram number:', this.props.hexagram.number);
+          }
+        }
+        window.console.log('complete?', this.isComplete);
       };
 
       // INTERNAL METHODS
@@ -590,18 +622,19 @@
     ////////
 
     service.hexagram = new Hexagram();
-    //service.ask = function(){
-    //  service.hexagram.array.length < 6 ? service.hexagram.addLine() : service.consult();
-    //};
+    service.ask = function(){
+      service.hexagram.props.lines.length < 6 ? service.hexagram.addLine() : service.consult();
+    };
 
     ////////
-    // Get a new hexagram
+    // --Get a new hexagram--
+    // Consult above-created hexagram
     ////////
 
     service.consult = function(){
       var deferred = $q.defer();
-      var hexagram = new Hexagram();
-      deferred.resolve(hexagram);
+      //var hexagram = new Hexagram();
+      deferred.resolve(service.hexagram);
       return deferred.promise;
     };
 

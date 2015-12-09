@@ -3,25 +3,16 @@
     <h1>Consider your question carefully.</h1>
 
     <div class="gua">
-      <div ng-repeat="line in ic.linesArray track by $index"
-           class="line-{{$index + 1}}"
+      <div ng-repeat="line in ic.figures.hexagram.props.lines track by $index"
            ng-class="{'yin': line.value == 0,
-                      'yang': line.value == 1}">
+                      'yang': line.value == 1,
+                      'changing': line.changing,
+                      'stable': !line.changing}">
       </div>
-
     </div>
 
-    {{figures.hexagram}}
-
-    <button ng-click="ic.ask()">
+    <button ng-click="ic.figures.hexagram.isComplete ? ic.consult() : ic.ask()">
       <h1>Ask</h1>
     </button>
-    <button ng-if="figures.hexagram.array.length == 6"
-            ng-click="ic.consult()">
-      <h1>Continue</h1>
-    </button>
-    <!--<button ng-click="ic.consult()">-->
-      <!--<h1>Ask</h1>-->
-    <!--</button>-->
   </section>
 </main>
