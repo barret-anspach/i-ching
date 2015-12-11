@@ -2,17 +2,31 @@
   <section class="consider text-align-center">
     <h1>Consider your question carefully.</h1>
 
-    <div class="gua">
-      <div ng-repeat="line in ic.figures.hexagram.props.lines track by $index"
-           ng-class="{'yin': line.value == 0,
+    <div class="oracle">
+      <div class="gua">
+        <div ng-repeat="line in ic.changingHexagram.lines track by $index"
+             ng-class="{'yin': line.value == 0,
                       'yang': line.value == 1,
                       'changing': line.changing,
                       'stable': !line.changing}">
+        </div>
+      </div>
+      <div class="trigram"
+           ng-hide="ic.changingHexagram.lines.length < 3">
+        <p ng-repeat="trigram in ic.changingHexagram.trigrams track by $index">
+          <span>{{trigram.wen}}</span> {{trigram.name}}
+        </p>
       </div>
     </div>
 
-    <button ng-click="ic.figures.hexagram.isComplete ? ic.consult() : ic.ask()">
-      <h1>Ask</h1>
+
+    <button ng-if="ic.changingHexagram.lines.length < 6"
+            ng-click="ic.tossCoins()">
+      <h1>Toss coins</h1>
+    </button>
+    <button ng-if="ic.changingHexagram.lines.length === 6"
+            ng-click="ic.fetchResult()">
+      <h1>Your reading</h1>
     </button>
   </section>
 </main>

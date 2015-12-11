@@ -1,5 +1,7 @@
 $black: rgba(0, 0, 0, 0.73);
 
+$unit: 1mm;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -41,7 +43,7 @@ body, html {
   line-height: 1.8;
   font-weight: 400;
   //padding: 1em;
-  margin: 16px;
+  margin: 12pt;
   //color: white;
   //background: $black;
 }
@@ -61,10 +63,10 @@ button {
   color: $black;
   -webkit-appearance: none;
   background: none;
-  padding: 0 0 2mm;
+  padding: 0 0 6pt;
   border: none;
-  border-bottom: 1mm solid $black;
-  margin-top: 18mm;
+  border-bottom: 3pt solid $black;
+  margin-top: 54pt;
   transition-property: border-bottom-color, color;
   transition: .33s ease;
   &:hover,
@@ -97,7 +99,10 @@ main {
 
 section.consider {
   .gua {
-    margin-top: 18mm;
+    margin-top: 54pt;
+  }
+  .trigram {
+    margin-top: 0;
   }
 }
 
@@ -113,11 +118,11 @@ section.hexagram {
   //width: 32mm;
   height: auto;
   & + & {
-    margin-left: 8mm;
+    margin-left: 24pt;
   }
 }
 .description {
-  max-width: 108mm;
+  max-width: 324pt;
   padding: 0 4em;
   margin: 1.83em auto 0;
   text-align: center;
@@ -127,8 +132,8 @@ section.hexagram {
   .wen {
     font-size: 1.8em;
     line-height: 1;
-    margin-top: 8mm;
-    margin-bottom: 4.25mm;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
   }
 }
 
@@ -139,8 +144,8 @@ section.hexagram {
   flex-flow: column-reverse nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  width: 32mm;
-  height: 27mm;
+  width: 96pt;
+  height: 81pt;
   margin: 0 auto;
 }
 
@@ -149,18 +154,18 @@ section.hexagram {
 .yang {
   position: relative;
   width: 100%;
-  height: 2mm;
+  height: 6pt;
   background: $black;
-  margin-bottom: 3mm;
+  margin-bottom: 9pt;
   &:first-of-type {
     margin-bottom: 0;
   }
   &.changing:after {
     content: '';
     position: absolute;
-    right: -4mm;
-    width: 2mm;
-    height: 2mm;
+    right: -12pt;
+    width: 6pt;
+    height: 6pt;
     //border-radius: 50%;
     background: $black;
   }
@@ -172,12 +177,47 @@ section.hexagram {
   &:before {
     content: '';
     position: absolute;
-    left: 12mm;
+    left: 36pt;
     top: 0;
     bottom: 0;
-    width: 8mm;
-    height: 2mm;
+    width: 24pt;
+    height: 6pt;
     background: white;
+  }
+}
+
+// Trigram displayed beside guà:
+.oracle {
+  position: relative;
+  //display: flex;
+  //flex-flow: row nowrap;
+  //justify-content: center;
+  //align-items: center;
+}
+.trigram {
+  @extend .gua;
+  display: none;
+  position: absolute;
+  align-items: flex-start;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  p {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 40.5pt;
+    margin: 0;
+  }
+  p span {
+    font-family: 'source-han-sans-traditional', sans-serif;
+    font-weight: 400;
+    margin-right: 6pt;
+  }
+
+  @media screen and (min-width: 600px) {
+    display: flex;
   }
 }
 

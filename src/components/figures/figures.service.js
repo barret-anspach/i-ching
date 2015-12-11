@@ -3,7 +3,9 @@
 
   angular
     .module('iChing')
-    .service('figures', figures);
+    .service('figures', figures)
+    .factory('ChangingHexagram', ChangingHexagram)
+    .factory('Hexagram', Hexagram);
 
   // 1 = Yang   (solid line)
   // 0 = Yin    (broken line)
@@ -532,109 +534,93 @@
       [10, 54, 60, 41, 19, 61, 38, 58]
     ];
 
+    //function Hexagram(id){
+    //  // PROPERTIES
+    //  this.lower = id ? _fetchTrigram(id, 'lower') : {};
+    //  this.upper = id ? _fetchTrigram(id, 'upper') : {};
+    //  this.hexagram = id ? _fetchById(id) : [];
+    //  this.id = id ? _.parseInt(id) : "";
+    //
+    //  this.props = {
+    //    lines: [],
+    //    trigrams: [],
+    //    sequence: [],
+    //    hexagram: {}
+    //  };
+    //  this.isComplete = false;
+    //
+    //  // METHODS
+    //  this.addLine = function(){
+    //    var num = _.random(6, 9);
+    //    var line = {};
+    //    if(num % 2 === 0) {
+    //      line = { value: 0, changing: num === 6 }
+    //    } else {
+    //      line = { value: 1, changing: num === 9 }
+    //    }
+    //    if(this.props.lines.length < 6){
+    //      this.props.lines.push(line);
+    //      this.props.sequence.push(line.value);
+    //    }
+    //    if(this.props.lines.length % 3 == 0){
+    //      var trigram = _.chunk(this.props.sequence, 3);
+    //      var index = this.props.lines.length == 3 ? 0 : 1;
+    //      this.props.trigrams.push(
+    //        _.find(service.trigrams, function(t){
+    //          return _.isEqual(t.sequence, trigram[index])
+    //        })
+    //      );
+    //      if(this.props.lines.length === 6){
+    //        var trigrams = this.props.trigrams;
+    //        this.props.hexagram = _.find(service.hexagrams, function(h){
+    //          return _.isEqual(h.trigrams, [trigrams[0].order, trigrams[1].order])
+    //        });
+    //        this.isComplete = true;
+    //        window.console.log('hexagram number:', this.props.hexagram.number);
+    //      }
+    //    }
+    //    window.console.log('complete?', this.isComplete);
+    //  };
+    //
+    //  // PRIVATE METHODS
+    //  function _random(parent, value){
+    //    var random = _.map(_.range(3), function(n){
+    //      n = _.random(0, 1);
+    //      return n;
+    //    });
+    //    return _.find(parent, function(p){
+    //      return _.isEqual(p[value], random);
+    //    })
+    //  }
+    //  function _fetchTrigram(hexId, position){
+    //    var hexagram = _fetchById(hexId);
+    //    return _.find(service.trigrams, function(t){
+    //      var index = _.isEqual(position, 'lower') ? 0 : 1;
+    //      return t.order === hexagram.trigrams[index];
+    //    })
+    //  }
+    //  function _fetchByTrigrams(array){
+    //    return _.find(service.hexagrams, function(h){
+    //      return _.isEqual(h.trigrams, array);
+    //    })
+    //  }
+    //  function _fetchById(id){
+    //    return _.find(service.hexagrams, function(h){
+    //      return h.number === _.parseInt(id)
+    //    })
+    //  }
+    //}
+
 
     ////////
-    // HEXAGRAM CLASS
+    // Transfer changingHexagram
+    // to Hexagram with params
+    // so there's a URL to go back to
     ////////
 
-    function Hexagram(id){
-      // PROPERTIES
-      this.lower = id ? fetchTrigram(id, 'lower') : random(service.trigrams, 'sequence');
-      this.upper = id ? fetchTrigram(id, 'upper') : random(service.trigrams, 'sequence');
-      this.hexagram = id ? fetchById(id) : fetchByTrigrams([this.lower['order'], this.upper['order']]);
-      this.id = id ? _.parseInt(id) : this.hexagram.number;
-
-      this.props = {
-        lines: [],
-        trigrams: [],
-        sequence: [],
-        hexagram: {}
-      };
-      this.isComplete = this.props.lines.length === 6;
-
-      // METHODS
-      this.addLine = function(){
-        var num = _.random(6, 9);
-        var line = num % 2 === 0 ?
-          {
-            value: 0,
-            changing: num === 6
-          } :
-          {
-            value: 1,
-            changing: num === 9
-          };
-        if(this.props.lines.length < 6){
-          this.props.lines.push(line);
-          this.props.sequence.push(line.value);
-        }
-        if(this.props.lines.length % 3 == 0){
-          var trigram = _.chunk(this.props.sequence, 3);
-          var index = this.props.lines.length == 3 ? 0 : 1;
-          this.props.trigrams.push(
-            _.find(service.trigrams, function(t){
-              return _.isEqual(t.sequence, trigram[index])
-            })
-          );
-          if(this.props.lines.length === 6){
-            var trigrams = this.props.trigrams;
-            this.props.hexagram = _.find(service.hexagrams, function(h){
-              return _.isEqual(h.trigrams, [trigrams[0].order, trigrams[1].order])
-            });
-            this.isComplete = true;
-            window.console.log('hexagram number:', this.props.hexagram.number);
-          }
-        }
-        window.console.log('complete?', this.isComplete);
-      };
-
-      // INTERNAL METHODS
-      function random(parent, value){
-        var random = _.map(_.range(3), function(n){
-          n = _.random(0, 1);
-          return n;
-        });
-        return _.find(parent, function(p){
-          return _.isEqual(p[value], random);
-        })
-      }
-      function fetchTrigram(hexId, position){
-        var hexagram = fetchById(hexId);
-        return _.find(service.trigrams, function(t){
-          var index = _.isEqual(position, 'lower') ? 0 : 1;
-          return t.order === hexagram.trigrams[index];
-        })
-      }
-      function fetchByTrigrams(array){
-        return _.find(service.hexagrams, function(h){
-          return _.isEqual(h.trigrams, array);
-        })
-      }
-      function fetchById(id){
-        return _.find(service.hexagrams, function(h){
-          return h.number === _.parseInt(id)
-        })
-      }
-    }
-
-    ////////
-    // Draw hexagram, line by line
-    ////////
-
-    service.hexagram = new Hexagram();
-    service.ask = function(){
-      service.hexagram.props.lines.length < 6 ? service.hexagram.addLine() : service.consult();
-    };
-
-    ////////
-    // --Get a new hexagram--
-    // Consult above-created hexagram
-    ////////
-
-    service.consult = function(){
+    service.consult = function(hexagram){
       var deferred = $q.defer();
-      //var hexagram = new Hexagram();
-      deferred.resolve(service.hexagram);
+      deferred.resolve(hexagram);
       return deferred.promise;
     };
 
@@ -642,10 +628,41 @@
     // Retrieve a hexagram by ID
     ////////
 
-    service.fetchHexagramById = function(hexId){
-      return new Hexagram(hexId);
-    };
+    //service.fetchHexagramById = function(hexId, props){
+    //  var hexagram = new Hexagram(hexId);
+    //  hexagram.props = props;
+    //  return hexagram;
+    //};
 
     return service;
+  }
+
+  function ChangingHexagram(){
+    var ChangingHexagram = function(){
+      this.lines = [];
+      this.trigrams = [];
+      this.sequence = [];
+      this.isComplete = false;
+      this.addLine = function(){
+        var line = {value: 1, coins: new Array(3), coinSum: 0, changing: false};
+        for(var i = 0; i < line.coins.length; i++){
+          // Heads: 3, Tails: 2
+          line.coins[i] = _.random(2, 3);
+          line.coinSum += line.coins[i];
+        }
+        line.changing = line.coinSum > 8 || line.coinSum < 7;
+        line.value = line.coinSum % 2 !== 0 ? 1 : 0;
+        this.lines.push(line);
+        this.sequence.push(line.value);
+      };
+    };
+    return ChangingHexagram;
+  }
+
+  function Hexagram(){
+    var Hexagram = function(params){
+      this.params = params;
+    };
+    return Hexagram;
   }
 })();
