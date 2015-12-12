@@ -534,88 +534,9 @@
       [10, 54, 60, 41, 19, 61, 38, 58]
     ];
 
-    //function Hexagram(id){
-    //  // PROPERTIES
-    //  this.lower = id ? _fetchTrigram(id, 'lower') : {};
-    //  this.upper = id ? _fetchTrigram(id, 'upper') : {};
-    //  this.hexagram = id ? _fetchById(id) : [];
-    //  this.id = id ? _.parseInt(id) : "";
-    //
-    //  this.props = {
-    //    lines: [],
-    //    trigrams: [],
-    //    sequence: [],
-    //    hexagram: {}
-    //  };
-    //  this.isComplete = false;
-    //
-    //  // METHODS
-    //  this.addLine = function(){
-    //    var num = _.random(6, 9);
-    //    var line = {};
-    //    if(num % 2 === 0) {
-    //      line = { value: 0, changing: num === 6 }
-    //    } else {
-    //      line = { value: 1, changing: num === 9 }
-    //    }
-    //    if(this.props.lines.length < 6){
-    //      this.props.lines.push(line);
-    //      this.props.sequence.push(line.value);
-    //    }
-    //    if(this.props.lines.length % 3 == 0){
-    //      var trigram = _.chunk(this.props.sequence, 3);
-    //      var index = this.props.lines.length == 3 ? 0 : 1;
-    //      this.props.trigrams.push(
-    //        _.find(service.trigrams, function(t){
-    //          return _.isEqual(t.sequence, trigram[index])
-    //        })
-    //      );
-    //      if(this.props.lines.length === 6){
-    //        var trigrams = this.props.trigrams;
-    //        this.props.hexagram = _.find(service.hexagrams, function(h){
-    //          return _.isEqual(h.trigrams, [trigrams[0].order, trigrams[1].order])
-    //        });
-    //        this.isComplete = true;
-    //        window.console.log('hexagram number:', this.props.hexagram.number);
-    //      }
-    //    }
-    //    window.console.log('complete?', this.isComplete);
-    //  };
-    //
-    //  // PRIVATE METHODS
-    //  function _random(parent, value){
-    //    var random = _.map(_.range(3), function(n){
-    //      n = _.random(0, 1);
-    //      return n;
-    //    });
-    //    return _.find(parent, function(p){
-    //      return _.isEqual(p[value], random);
-    //    })
-    //  }
-    //  function _fetchTrigram(hexId, position){
-    //    var hexagram = _fetchById(hexId);
-    //    return _.find(service.trigrams, function(t){
-    //      var index = _.isEqual(position, 'lower') ? 0 : 1;
-    //      return t.order === hexagram.trigrams[index];
-    //    })
-    //  }
-    //  function _fetchByTrigrams(array){
-    //    return _.find(service.hexagrams, function(h){
-    //      return _.isEqual(h.trigrams, array);
-    //    })
-    //  }
-    //  function _fetchById(id){
-    //    return _.find(service.hexagrams, function(h){
-    //      return h.number === _.parseInt(id)
-    //    })
-    //  }
-    //}
-
-
     ////////
-    // Transfer changingHexagram
-    // to Hexagram with params
-    // so there's a URL to go back to
+    // CONSULT
+    // TODO: Grab all service items from server
     ////////
 
     service.consult = function(hexagram){
@@ -624,15 +545,10 @@
       return deferred.promise;
     };
 
-    ////////
-    // Retrieve a hexagram by ID
-    ////////
-
-    //service.fetchHexagramById = function(hexId, props){
-    //  var hexagram = new Hexagram(hexId);
-    //  hexagram.props = props;
-    //  return hexagram;
-    //};
+    service.menuOpen = false;
+    service.toggleMenu = function(){
+      service.menuOpen = !service.menuOpen;
+    };
 
     return service;
   }
@@ -659,9 +575,29 @@
     return ChangingHexagram;
   }
 
-  function Hexagram(){
-    var Hexagram = function(params){
-      this.params = params;
+  function Hexagram(figures){
+    var Hexagram = function(id, changingLines){
+      this.id = _.parseInt(id);
+      changingLines = JSON.parse("[" + changingLines + "]");
+      var self = this;
+      var lines = [];
+      var trigrams = [];
+      this.props = _.find(figures.hexagrams, function(h){
+        return h.number === self.id;
+      });
+      // Reconstruct Line objects
+      for(var i = 0; i < this.props.sequence.length; i++){
+        lines.push({ value: this.props.sequence[i], changing: changingLines[i] });
+      }
+      this.lines = lines;
+      // Get trigram objects
+      _.each(this.props.trigrams, function(trigram){
+        trigram = _.find(figures.trigrams, function(t){
+          return t.order === trigram;
+        });
+        trigrams.push(trigram);
+      });
+      this.trigrams = trigrams;
     };
     return Hexagram;
   }

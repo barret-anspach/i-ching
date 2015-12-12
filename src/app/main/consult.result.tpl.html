@@ -1,15 +1,50 @@
-<main class="i-ching">
-  <section class="hexagram">
-    <div class="gua">
-      <div ng-repeat="line in hex.hexagram.props.lines track by $index"
-           ng-class="{'yin': line == 0,
-                      'yang': line == 1}">
+<main>
+  <section class="result">
+    <div class="oracle">
+      <div class="gua">
+        <div ng-repeat="line in hex.hexagram.lines track by $index"
+             ng-click="line.changing ? ic.figures.toggleMenu() : null;"
+             ng-class="{'yin': line.value == 0,
+                      'yang': line.value == 1,
+                      'changing': line.changing,
+                      'stable': !line.changing}">
+        </div>
+      </div>
+      <div class="trigram">
+        <p ng-repeat="trigram in hex.hexagram.trigrams track by $index">
+          <span>{{trigram.wen}}</span> {{trigram.name}}
+        </p>
       </div>
     </div>
     <div class="description">
-      <h1>{{hex.hexagram.hexagram.number}}</h1>
-      <h1>{{hex.hexagram.hexagram.name}}</h1>
-      <h1 class="wen">{{hex.hexagram.hexagram.wen}}</h1>
+      <h1>{{hex.hexagram.props.number}}</h1>
+      <h1>{{hex.hexagram.props.name}}</h1>
+      <h1 class="wen">{{hex.hexagram.props.wen}}</h1>
+      <div class="description-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id tellus urna. Aenean convallis felis id mauris
+          mollis interdum. Donec sagittis risus nisi, non rhoncus arcu iaculis quis. Integer sit amet molestie lorem.
+          Donec pulvinar eleifend tellus sit amet euismod. Nam fermentum mi nibh, id semper quam varius ut. Ut nec rutrum
+          elit. Donec hendrerit lectus sem, a cursus turpis tincidunt ac. Praesent id cursus enim, eu lobortis leo.
+          Vestibulum lorem tellus, sollicitudin vitae sem ut, fermentum malesuada nulla. Vivamus fringilla odio mi.
+          Aliquam vulputate est ipsum, auctor facilisis urna viverra ut.</p>
+        <p>Nam blandit, leo et cursus facilisis, ipsum lorem blandit velit, et iaculis orci mauris sed metus. Ut elit
+          risus, aliquam id iaculis at, luctus non justo. Duis blandit nunc ut velit tincidunt volutpat. In hac habitasse
+          platea dictumst. Vivamus magna orci, ultricies sit amet ullamcorper eget, semper non justo. Morbi tellus arcu,
+          vestibulum at pellentesque vel, sodales sed nibh. Vestibulum vitae erat eu mi facilisis iaculis et non tellus.
+          Aenean vehicula tristique neque vitae dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+          lorem nisi, ullamcorper blandit pellentesque eget, posuere in urna. Aenean posuere ultrices neque et
+          consequat.</p>
+      </div>
     </div>
   </section>
+
+  <footer class="">
+    <button ng-click="ic.reset();">
+      <h1>Ask another question</h1>
+    </button>
+  </footer>
 </main>
+
+<aside ng-class="{'open': ic.figures.menuOpen}">
+  <h1>Some information about your changing line:</h1>
+</aside>

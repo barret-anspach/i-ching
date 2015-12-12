@@ -1,4 +1,5 @@
 $black: rgba(0, 0, 0, 0.73);
+$gold: rgba(184, 134, 11, 1);
 
 $unit: 1mm;
 
@@ -36,16 +37,14 @@ body, html {
   }
 }
 
-// To display Chinese Unicode characters
+// Use to display Chinese Unicode characters
 .wen {
   font-family: 'source-han-sans-traditional', sans-serif;
   font-size: 4em;
   line-height: 1.8;
   font-weight: 400;
-  //padding: 1em;
   margin: 12pt;
-  //color: white;
-  //background: $black;
+  color: $gold;
 }
 
 .text-align-right {
@@ -59,21 +58,25 @@ body, html {
 }
 
 button {
+  cursor: pointer;
+  -webkit-appearance: none;
   font: 600 12pt/16pt 'brandon-grotesque';
   color: $black;
-  -webkit-appearance: none;
   background: none;
   padding: 0 0 6pt;
   border: none;
   border-bottom: 3pt solid $black;
-  margin-top: 54pt;
-  transition-property: border-bottom-color, color;
+  opacity: 1;
+  transition-property: border-bottom-color, color, opacity;
   transition: .33s ease;
   &:hover,
   &:focus,
   &:active {
     color: black;
     border-bottom-color: black;
+  }
+  &.inactive {
+    opacity: 0.73;
   }
 }
 
@@ -82,15 +85,57 @@ button {
 
 
 main {
+  position: relative;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
-  //border: 5mm solid $black;
   margin: 0;
+}
+
+section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+footer {
+  position: fixed;
+  flex: 0 0 auto;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 24pt;
+  @media screen and (min-height: 600px) {
+    padding: 54pt 24pt;
+  }
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 33vw;
+  min-width: 148pt;
+  max-width: 240pt;
+  color: white;
+  background: $gold;
+  opacity: 0;
+  padding: 2em;
+  transition: all .5s ease;
+  transform: translateX(100%);
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 ////////
@@ -106,25 +151,25 @@ section.consider {
   }
 }
 
-
 ////////
-// Consult: Results
+// Consult: Result
 ////////
 
-section.hexagram {
+section.result {
   flex: 0 0 auto;
   position: relative;
   display: block;
-  //width: 32mm;
   height: auto;
-  & + & {
-    margin-left: 24pt;
+  padding-top: 96pt;
+  padding-bottom: 96pt;
+  .description {
+    margin: 1.83em 0 0;
   }
 }
+
 .description {
   max-width: 324pt;
-  padding: 0 4em;
-  margin: 1.83em auto 0;
+  //margin: 1.83em auto 0;
   text-align: center;
   h1 {
     margin-bottom: 1em;
@@ -136,8 +181,11 @@ section.hexagram {
     margin-bottom: 12pt;
   }
 }
+.description-text {
+  margin: 1.83em 0;
+}
 
-// hexagram: Guà
+// Hexagram: Guà
 .gua {
   flex: 0 0 auto;
   display: flex;
@@ -149,7 +197,28 @@ section.hexagram {
   margin: 0 auto;
 }
 
+////////
 // Horizontal lines
+////////
+
+.line {
+  &.ng-move,
+  &.ng-enter,
+  &.ng-leave {
+    transition: all .33s ease;
+  }
+  &.ng-leave.ng-leave-active,
+  &.ng-move,
+  &.ng-enter {
+    opacity: 0;
+  }
+  &.ng-leave,
+  &.ng-move.ng-move-active,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
 // Solid line: Yang (1)
 .yang {
   position: relative;
@@ -160,14 +229,36 @@ section.hexagram {
   &:first-of-type {
     margin-bottom: 0;
   }
+  &.changing {
+    cursor: pointer;
+    transition: all .33s ease;
+  }
+  &.changing:hover {
+    background: darkgoldenrod;
+  }
   &.changing:after {
     content: '';
     position: absolute;
     right: -12pt;
     width: 6pt;
     height: 6pt;
-    //border-radius: 50%;
+    border-radius: 50%;
+    background: darkgoldenrod;
+    transition: all .33s ease;
+  }
+  &.changing.ng-leave.ng-leave-active:after,
+  &.changing.ng-move:after,
+  &.changing.ng-enter:after {
+    opacity: 0;
     background: $black;
+    transform: translateX(-24pt);
+  }
+  &.changing.ng-leave:after
+  &.changing.ng-move.ng-move-active:after
+  &.changing.ng-enter.ng-enter-active:after {
+    opacity: 1;
+    background: darkgoldenrod;
+    transform: translateX(-12pt);
   }
 }
 
@@ -178,30 +269,29 @@ section.hexagram {
     content: '';
     position: absolute;
     left: 36pt;
-    top: 0;
+    top: -2pt;
     bottom: 0;
     width: 24pt;
-    height: 6pt;
+    height: 10pt;
     background: white;
   }
 }
 
-// Trigram displayed beside guà:
+// Trigram
+// (displayed to right of guà)
 .oracle {
   position: relative;
-  //display: flex;
-  //flex-flow: row nowrap;
-  //justify-content: center;
-  //align-items: center;
 }
 .trigram {
   @extend .gua;
   display: none;
   position: absolute;
   align-items: flex-start;
-  width: 100%;
+  width: auto;
   top: 0;
-  left: 100%;
+  left: 50%;
+  color: $gold;
+  transform: translateX(#{calc(-50% + 120pt)});
   p {
     display: flex;
     flex-flow: row nowrap;
@@ -218,6 +308,37 @@ section.hexagram {
 
   @media screen and (min-width: 600px) {
     display: flex;
+  }
+}
+
+
+////////
+// COINS
+////////
+.coins {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 100%;
+  width: 96pt;
+  height: 81pt;
+  margin: 0;
+}
+.coin {
+  flex: 0 0 auto;
+  width: 24pt;
+  height: 24pt;
+  border-radius: 12pt;
+  border: 2pt solid black;
+  opacity: 0.73;
+  &.tails {
+    background: black;
+  }
+  & + & {
+    margin-left: 12pt;
   }
 }
 

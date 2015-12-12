@@ -1,32 +1,37 @@
 <main>
   <section class="consider text-align-center">
-    <h1>Consider your question carefully.</h1>
+    <div class="description">
+      <p>Consider your question carefully, then draw each of your hexagram's six lines.</p>
+    </div>
 
     <div class="oracle">
       <div class="gua">
-        <div ng-repeat="line in ic.changingHexagram.lines track by $index"
+        <div class="line"
+             ng-repeat="line in ic.changingHexagram.lines track by $index"
              ng-class="{'yin': line.value == 0,
-                      'yang': line.value == 1,
-                      'changing': line.changing,
-                      'stable': !line.changing}">
+                    'yang': line.value == 1,
+                    'changing': line.changing,
+                    'stable': !line.changing}">
         </div>
       </div>
-      <div class="trigram"
-           ng-hide="ic.changingHexagram.lines.length < 3">
-        <p ng-repeat="trigram in ic.changingHexagram.trigrams track by $index">
-          <span>{{trigram.wen}}</span> {{trigram.name}}
-        </p>
-      </div>
+      <!--<div class="coins"-->
+           <!--ng-repeat="line in ic.changingHexagram.lines track by $index"-->
+           <!--ng-show="$index == (ic.changingHexagram.lines.length - 1)">-->
+        <!--<div class="coin"-->
+             <!--ng-repeat="coin in line.coins track by $index"-->
+             <!--ng-class="{'tails': coin === 2}">-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
-
-
-    <button ng-if="ic.changingHexagram.lines.length < 6"
-            ng-click="ic.tossCoins()">
-      <h1>Toss coins</h1>
-    </button>
-    <button ng-if="ic.changingHexagram.lines.length === 6"
-            ng-click="ic.fetchResult()">
-      <h1>Your reading</h1>
-    </button>
   </section>
+
+  <footer class="text-align-center">
+    <button ng-click="ic.tossCoins()"
+            ng-class="{'inactive': ic.changingHexagram.isComplete}">
+      <h1>
+        <span ng-show="!ic.changingHexagram.isComplete">Draw line</span>
+        <span ng-show="ic.changingHexagram.isComplete">See result</span>
+      </h1>
+    </button>
+  </footer>
 </main>
