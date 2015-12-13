@@ -53,5 +53,6 @@
   function HexagramCtrl($stateParams, Hexagram){
     var hex = this;
     hex.hexagram = new Hexagram($stateParams.hexId, $stateParams.hexCl);
+    hex.anyChangingLines = _.any(hex.hexagram.lines, 'changing');
   }
 })();

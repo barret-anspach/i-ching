@@ -78,448 +78,2552 @@
         trigrams: [0, 0],
         sequence: [1,1,1,1,1,1],
         name: 'The Creative Heaven',
-        wen: '乾'
+        wen: '乾',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 2,
         trigrams: [4, 4],
         sequence: [0,0,0,0,0,0],
         name: 'The Receptive Earth',
-        wen: '坤'
+        wen: '坤',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 3,
         trigrams: [1, 2],
         sequence: [1,0,0,0,1,0],
         name: 'Difficulty at the Beginning',
-        wen: '屯'
+        wen: '屯',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 4,
         trigrams: [2, 3],
         sequence: [0,1,0,0,0,1],
         name: 'Youthful Folly',
-        wen: '蒙'
+        wen: '蒙',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 5,
         trigrams: [0, 2],
         sequence: [1,1,1,0,1,0],
         name: 'Waiting',
-        wen: '需'
+        wen: '需',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 6,
         trigrams: [2, 0],
         sequence: [0,1,0,1,1,1],
         name: 'Conflict',
-        wen: '訟'
+        wen: '訟',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 7,
         trigrams: [2, 4],
         sequence: [0,1,0,0,0,0],
         name: 'The Army',
-        wen: '師'
+        wen: '師',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 8,
         trigrams: [4, 2],
         sequence: [0,0,0,0,1,0],
         name: 'Holding Together',
-        wen: '比'
+        wen: '比',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 9,
         trigrams: [0, 5],
         sequence: [1,1,1,0,1,1],
         name: 'Small Taming',
-        wen: '小畜'
+        wen: '小畜',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 10,
         trigrams: [7, 0],
         sequence: [1,1,0,1,1,1],
         name: 'Treading',
-        wen: '履'
+        wen: '履',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 11,
         trigrams: [0, 4],
         sequence: [1,1,1,0,0,0],
         name: 'Peace',
-        wen: '泰'
+        wen: '泰',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 12,
         trigrams: [4, 0],
         sequence: [0,0,0,1,1,1],
         name: 'Standstill',
-        wen: '否'
+        wen: '否',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 13,
         trigrams: [6, 0],
         sequence: [1,0,1,1,1,1],
         name: 'Fellowship',
-        wen: '同人'
+        wen: '同人',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 14,
         trigrams: [0, 6],
         sequence: [1,1,1,1,0,1],
         name: 'Great Possession',
-        wen: '大有'
+        wen: '大有',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 15,
         trigrams: [3, 4],
         sequence: [0,0,1,0,0,0],
         name: 'Modesty',
-        wen: '謙'
+        wen: '謙',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 16,
         trigrams: [4, 1],
         sequence: [0,0,0,1,0,0],
         name: 'Enthusiasm',
-        wen: '豫'
+        wen: '豫',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 17,
         trigrams: [1, 7],
         sequence: [1,0,0,1,1,0],
         name: 'Following',
-        wen: '隨'
+        wen: '隨',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 18,
         trigrams: [5, 3],
         sequence: [0,1,1,0,0,1],
         name: 'Work on the Decayed',
-        wen: '蠱'
+        wen: '蠱',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 19,
         trigrams: [7, 4],
         sequence: [1,1,0,0,0,0],
         name: 'Approach',
-        wen: '臨'
+        wen: '臨',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 20,
         trigrams: [4, 5],
         sequence: [0,0,0,0,1,1],
         name: 'Contemplation',
-        wen: '觀'
+        wen: '觀',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 21,
         trigrams: [1, 6],
         sequence: [1,0,0,1,0,1],
         name: 'Biting Through',
-        wen: '噬嗑'
+        wen: '噬嗑',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 22,
         trigrams: [6, 3],
         sequence: [1,0,1,0,0,1],
         name: 'Grace',
-        wen: '賁'
+        wen: '賁',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 23,
         trigrams: [4, 3],
         sequence: [0,0,0,0,0,1],
         name: 'Splitting Apart',
-        wen: '剝'
+        wen: '剝',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 24,
         trigrams: [1, 4],
         sequence: [1,0,0,0,0,0],
         name: 'Return',
-        wen: '復'
+        wen: '復',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 25,
         trigrams: [1, 0],
         sequence: [1,0,0,1,1,1],
         name: 'Innocence',
-        wen: '無妄'
+        wen: '無妄',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 26,
         trigrams: [0, 3],
         sequence: [1,1,1,0,0,1],
         name: 'Great Taming',
-        wen: '大畜'
+        wen: '大畜',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 27,
         trigrams: [1, 3],
         sequence: [1,0,0,0,0,1],
         name: 'Corners of the Mouth',
-        wen: '頤'
+        wen: '頤',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 28,
         trigrams: [5, 7],
         sequence: [0,1,1,1,1,0],
         name: 'Great Preponderance',
-        wen: '大過'
+        wen: '大過',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 29,
         trigrams: [2, 2],
         sequence: [0,1,0,0,1,0],
         name: 'The Abyss',
-        wen: '坎'
+        wen: '坎',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 30,
         trigrams: [6, 6],
         sequence: [1,0,1,1,0,1],
         name: 'The Clinging Fire',
-        wen: '離'
+        wen: '離',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 31,
         trigrams: [3, 7],
         sequence: [0,0,1,1,1,0],
         name: 'Influence',
-        wen: '咸'
+        wen: '咸',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 32,
         trigrams: [5, 1],
         sequence: [0,1,1,1,0,0],
         name: 'Duration',
-        wen: '恆'
+        wen: '恆',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 33,
         trigrams: [3, 0],
         sequence: [0,0,1,1,1,1],
         name: 'Retreat',
-        wen: '遯'
+        wen: '遯',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 34,
         trigrams: [0, 1],
         sequence: [1,1,1,1,0,0],
         name: 'Great Power',
-        wen: '大壯'
+        wen: '大壯',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 35,
         trigrams: [4, 6],
         sequence: [0,0,0,1,0,1],
         name: 'Progress',
-        wen: '晉'
+        wen: '晉',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 36,
         trigrams: [6, 4],
         sequence: [1,0,1,0,0,0],
         name: 'Darkening of the Light',
-        wen: '明夷'
+        wen: '明夷',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 37,
         trigrams: [6, 5],
         sequence: [1,0,1,0,1,1],
         name: 'The Family',
-        wen: '家人'
+        wen: '家人',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 38,
         trigrams: [7, 6],
         sequence: [1,1,0,1,0,1],
         name: 'Opposition',
-        wen: '睽'
+        wen: '睽',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 39,
         trigrams: [3, 2],
         sequence: [0,0,1,0,1,0],
         name: 'Obstruction',
-        wen: '蹇'
+        wen: '蹇',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 40,
         trigrams: [2, 1],
         sequence: [0,1,0,1,0,0],
         name: 'Deliverance',
-        wen: '解'
+        wen: '解',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 41,
         trigrams: [7, 3],
         sequence: [1,1,0,0,0,1],
         name: 'Decrease',
-        wen: '損'
+        wen: '損',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 42,
         trigrams: [1, 5],
         sequence: [1,0,0,0,1,1],
         name: 'Increase',
-        wen: '益'
+        wen: '益',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 43,
         trigrams: [0, 7],
         sequence: [1,1,1,1,1,0],
         name: 'Breakthrough',
-        wen: '夬'
+        wen: '夬',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 44,
         trigrams: [5, 0],
         sequence: [0,1,1,1,1,1],
         name: 'Coming to Meet',
-        wen: '姤'
+        wen: '姤',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 45,
         trigrams: [4, 7],
         sequence: [0,0,0,1,1,0],
         name: 'Gathering Together',
-        wen: '萃'
+        wen: '萃',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 46,
         trigrams: [5, 4],
         sequence: [0,1,1,0,0,0],
         name: 'Pushing Upward',
-        wen: '升'
+        wen: '升',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 47,
         trigrams: [2, 7],
         sequence: [0,1,0,1,1,0],
         name: 'Oppression',
-        wen: '困'
+        wen: '困',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 48,
         trigrams: [5, 2],
         sequence: [0,1,1,0,1,0],
         name: 'The Well',
-        wen: '井'
+        wen: '井',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 49,
         trigrams: [6, 7],
         sequence: [1,0,1,1,1,0],
         name: 'Revolution',
-        wen: '革'
+        wen: '革',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 50,
         trigrams: [5, 6],
         sequence: [0,1,1,1,0,1],
         name: 'The Cauldron',
-        wen: '鼎'
+        wen: '鼎',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 51,
         trigrams: [1, 1],
         sequence: [1,0,0,1,0,0],
         name: 'Arousing Thunder',
-        wen: '震'
+        wen: '震',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 52,
         trigrams: [3, 3],
         sequence: [0,0,1,0,0,1],
         name: 'Keeping Still Mountain',
-        wen: '艮'
+        wen: '艮',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 53,
         trigrams: [3, 5],
         sequence: [0,0,1,0,1,1],
         name: 'Development',
-        wen: '漸'
+        wen: '漸',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 54,
         trigrams: [7, 1],
         sequence: [1,1,0,1,0,0],
         name: 'Marrying Maiden',
-        wen: '歸妹'
+        wen: '歸妹',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 55,
         trigrams: [6, 1],
         sequence: [1,0,1,1,0,0],
         name: 'Abundance',
-        wen: '豐'
+        wen: '豐',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 56,
         trigrams: [3, 6],
         sequence: [0,0,1,1,0,1],
         name: 'The Wanderer',
-        wen: '旅'
+        wen: '旅',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 57,
         trigrams: [5, 5],
         sequence: [0,1,1,0,1,1],
         name: 'The Gentle Wind',
-        wen: '巽'
+        wen: '巽',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 58,
         trigrams: [7, 7],
         sequence: [1,1,0,1,1,0],
         name: 'The Joyous Lake',
-        wen: '兌'
+        wen: '兌',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 59,
         trigrams: [2, 5],
         sequence: [0,1,0,0,1,1],
         name: 'Dispersion',
-        wen: '渙'
+        wen: '渙',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 60,
         trigrams: [7, 2],
         sequence: [1,1,0,0,1,0],
         name: 'Limitation',
-        wen: '節'
+        wen: '節',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 61,
         trigrams: [7, 5],
         sequence: [1,1,0,0,1,1],
         name: 'Inner Truth',
-        wen: '中孚'
+        wen: '中孚',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 62,
         trigrams: [3, 1],
         sequence: [0,0,1,1,0,0],
         name: 'Small Preponderance',
-        wen: '小過'
+        wen: '小過',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 63,
         trigrams: [6, 2],
         sequence: [1,0,1,0,1,0],
         name: 'After Completion',
-        wen: '既濟'
+        wen: '既濟',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       },
       {
         number: 64,
         trigrams: [2, 6],
         sequence: [0,1,0,1,0,1],
         name: 'Before Completion',
-        wen: '未濟'
+        wen: '未濟',
+        says: "",
+        sees: "",
+        suggests: "",
+        changing: [
+          {
+            line: 0,
+            meaning: ""
+          },
+          {
+            line: 1,
+            meaning: ""
+          },
+          {
+            line: 2,
+            meaning: ""
+          },
+          {
+            line: 3,
+            meaning: ""
+          },
+          {
+            line: 4,
+            meaning: ""
+          },
+          {
+            line: 5,
+            meaning: ""
+          },
+          {
+            line: 6,
+            meaning: ""
+          }
+        ]
       }
     ];
 

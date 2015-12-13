@@ -1,7 +1,7 @@
 <main>
   <section class="consider text-align-center">
     <div class="description">
-      <p>Consider your question carefully, then draw each of your hexagram's six lines.</p>
+      <p>Consider your thoughts carefully, then toss the coins below for each of your hexagram's six lines.</p>
     </div>
 
     <div class="oracle">
@@ -14,24 +14,29 @@
                     'stable': !line.changing}">
         </div>
       </div>
-      <!--<div class="coins"-->
-           <!--ng-repeat="line in ic.changingHexagram.lines track by $index"-->
-           <!--ng-show="$index == (ic.changingHexagram.lines.length - 1)">-->
-        <!--<div class="coin"-->
-             <!--ng-repeat="coin in line.coins track by $index"-->
-             <!--ng-class="{'tails': coin === 2}">-->
-        <!--</div>-->
-      <!--</div>-->
     </div>
   </section>
 
   <footer class="text-align-center">
-    <button ng-click="ic.tossCoins()"
-            ng-class="{'inactive': ic.changingHexagram.isComplete}">
-      <h1>
-        <span ng-show="!ic.changingHexagram.isComplete">Draw line</span>
-        <span ng-show="ic.changingHexagram.isComplete">See result</span>
-      </h1>
-    </button>
+    <!--<button ng-click="ic.tossCoins()"-->
+            <!--ng-show="ic.changingHexagram.isComplete">-->
+      <!--<h1>See result</h1>-->
+    <!--</button>-->
+    <div class="coins"
+         ng-click="ic.tossCoins()"
+         ng-show="ic.changingHexagram.lines.length === 0">
+      <div class="coin tails"></div>
+      <div class="coin tails"></div>
+      <div class="coin tails"></div>
+    </div>
+    <div class="coins"
+         ng-repeat="line in ic.changingHexagram.lines track by $index"
+         ng-show="$index == (ic.changingHexagram.lines.length - 1) && !ic.changingHexagram.isComplete"
+         ng-click="ic.tossCoins()">
+      <div class="coin"
+           ng-repeat="coin in line.coins track by $index"
+           ng-class="{'tails': coin === 2}">
+      </div>
+    </div>
   </footer>
 </main>

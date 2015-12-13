@@ -3,6 +3,26 @@ $gold: rgba(184, 134, 11, 1);
 
 $unit: 1mm;
 
+@keyframes fade-in-out {
+  0% {
+    opacity: 0.73;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.73;
+  }
+}
+@keyframes spin-Y-axis {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -80,6 +100,23 @@ button {
   }
 }
 
+h1.close {
+  display: inline-block;
+  cursor: pointer;
+  transition: border-bottom-color .33s ease;
+  font-size: 2em;
+  padding-bottom: 3pt;
+  border-bottom: 3pt solid transparent;
+  margin-bottom: 16pt;
+  width: auto;
+  clear: both;
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom-color: white;
+  }
+}
+
 
 
 
@@ -97,7 +134,9 @@ main {
 }
 
 section {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  margin-bottom: 6em;
+  //flex: 1 1 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -107,13 +146,21 @@ section {
 
 footer {
   position: fixed;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
   flex: 0 0 auto;
   bottom: 0;
   right: 0;
   left: 0;
   padding: 24pt;
+  &.unfixed {
+    position: relative;
+  }
   @media screen and (min-height: 600px) {
-    padding: 54pt 24pt;
+    padding: 54pt;
   }
 }
 
@@ -124,8 +171,8 @@ aside {
   bottom: 0;
   display: block;
   width: 33vw;
-  min-width: 148pt;
-  max-width: 240pt;
+  min-width: 200pt;
+  max-width: 300pt;
   color: white;
   background: $gold;
   opacity: 0;
@@ -140,6 +187,17 @@ aside {
 
 ////////
 // Introductory Page
+////////
+
+section.introduction {
+  .wen {
+    line-height: 1;
+    margin: 12pt 12pt .8em;
+  }
+}
+
+////////
+// Consult: Consider
 ////////
 
 section.consider {
@@ -162,6 +220,7 @@ section.result {
   height: auto;
   padding-top: 96pt;
   padding-bottom: 96pt;
+  margin-bottom: 0;
   .description {
     margin: 1.83em 0 0;
   }
@@ -183,6 +242,10 @@ section.result {
 }
 .description-text {
   margin: 1.83em 0;
+}
+.has-changing-lines {
+  font-weight: 600;
+  color: $gold;
 }
 
 // Hexagram: Guà
@@ -253,9 +316,7 @@ section.result {
     background: $black;
     transform: translateX(-24pt);
   }
-  &.changing.ng-leave:after
-  &.changing.ng-move.ng-move-active:after
-  &.changing.ng-enter.ng-enter-active:after {
+  &.changing.ng-leave:after {
     opacity: 1;
     background: darkgoldenrod;
     transform: translateX(-12pt);
@@ -299,10 +360,11 @@ section.result {
     align-items: center;
     height: 40.5pt;
     margin: 0;
+    font-weight: 600;
   }
   p span {
     font-family: 'source-han-sans-traditional', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     margin-right: 6pt;
   }
 
@@ -316,7 +378,8 @@ section.result {
 // COINS
 ////////
 .coins {
-  position: absolute;
+  cursor: pointer;
+  flex: 0 0 auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -324,24 +387,22 @@ section.result {
   top: 0;
   right: 100%;
   width: 96pt;
-  height: 81pt;
   margin: 0;
 }
 .coin {
   flex: 0 0 auto;
   width: 24pt;
   height: 24pt;
-  border-radius: 12pt;
-  border: 2pt solid black;
-  opacity: 0.73;
+  border-radius: 50%;
+  border: 4pt solid $gold;
+  transition: all .33s ease;
   &.tails {
-    background: black;
+    background: $gold;
   }
   & + & {
     margin-left: 12pt;
   }
 }
-
 
 // injector
 // endinjector

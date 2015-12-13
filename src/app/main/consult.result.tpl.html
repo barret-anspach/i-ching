@@ -16,29 +16,25 @@
         </p>
       </div>
     </div>
+
     <div class="description">
       <h1>{{hex.hexagram.props.number}}</h1>
       <h1>{{hex.hexagram.props.name}}</h1>
       <h1 class="wen">{{hex.hexagram.props.wen}}</h1>
+
       <div class="description-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id tellus urna. Aenean convallis felis id mauris
-          mollis interdum. Donec sagittis risus nisi, non rhoncus arcu iaculis quis. Integer sit amet molestie lorem.
-          Donec pulvinar eleifend tellus sit amet euismod. Nam fermentum mi nibh, id semper quam varius ut. Ut nec rutrum
-          elit. Donec hendrerit lectus sem, a cursus turpis tincidunt ac. Praesent id cursus enim, eu lobortis leo.
-          Vestibulum lorem tellus, sollicitudin vitae sem ut, fermentum malesuada nulla. Vivamus fringilla odio mi.
-          Aliquam vulputate est ipsum, auctor facilisis urna viverra ut.</p>
-        <p>Nam blandit, leo et cursus facilisis, ipsum lorem blandit velit, et iaculis orci mauris sed metus. Ut elit
-          risus, aliquam id iaculis at, luctus non justo. Duis blandit nunc ut velit tincidunt volutpat. In hac habitasse
-          platea dictumst. Vivamus magna orci, ultricies sit amet ullamcorper eget, semper non justo. Morbi tellus arcu,
-          vestibulum at pellentesque vel, sodales sed nibh. Vestibulum vitae erat eu mi facilisis iaculis et non tellus.
-          Aenean vehicula tristique neque vitae dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
-          lorem nisi, ullamcorper blandit pellentesque eget, posuere in urna. Aenean posuere ultrices neque et
-          consequat.</p>
+        <p ng-bind="hex.hexagram.props.says"></p>
+        <p ng-bind="hex.hexagram.props.sees"></p>
+        <p ng-bind="hex.hexagram.props.suggests"></p>
       </div>
+      <div class="has-changing-lines" ng-if="hex.anyChangingLines">
+        <p>Your hexagram has changing lines. To discover more, tap any line on your hexagram with a mustard dot.</p>
+      </div>
+
     </div>
   </section>
 
-  <footer class="">
+  <footer class="unfixed">
     <button ng-click="ic.reset();">
       <h1>Ask another question</h1>
     </button>
@@ -46,5 +42,10 @@
 </main>
 
 <aside ng-class="{'open': ic.figures.menuOpen}">
+  <h1 class="close" ng-click="ic.figures.toggleMenu();">&times;</h1>
   <h1>Some information about your changing line:</h1>
+  <div ng-repeat="changing in hex.hexagram.props.changing track by $index">
+    <h1>{{changing.line}}</h1>
+    <p>{{changing.meaning}}</p>
+  </div>
 </aside>
