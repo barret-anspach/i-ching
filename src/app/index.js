@@ -3,26 +3,30 @@
 angular.module('iChing', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ngMaterial'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html'
-      })
-      .state('consult', {
+      .state('iChing', {
         abstract: true,
-        url: '/consult',
         template: '<div ui-view></div>',
         controller: 'iChingCtrl as ic'
       })
-      .state('consult.consider', {
+      .state('iChing.begin', {
+        url: '/',
+        templateUrl: 'app/main/main.html'
+      })
+      .state('iChing.consult', {
+        abstract: true,
+        template: '<div ui-view></div>',
+        controller: 'ConsultCtrl as consult'
+      })
+      .state('iChing.consult.consider', {
         url: '/consider',
         templateUrl: 'app/main/consult.consider.tpl.html'
       })
-      .state('consult.result', {
+      .state('iChing.consult.result', {
         url: '/result?:hexId&hexCl',
         templateUrl: 'app/main/consult.result.tpl.html',
         controller: 'HexagramCtrl as hex'
       })
-      .state('consult.furtherStudy', {
+      .state('iChing.consult.furtherStudy', {
         url: '/furtherStudy',
         templateUrl: 'app/main/consult.furtherStudy.tpl.html'
       })
@@ -30,18 +34,15 @@ angular.module('iChing', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ng
 
     $urlRouterProvider.otherwise('/');
   })
-
-  .run(function(){
-    //Parse.initialize("69VyY3XiWlAzccXb1Ox7NSC0oy05P65SmmyQ1lod", "DpeVZwARY1Oh5Gao6TzwLqCvwtTvUAxG1ZbWyl69");
-  })
-
+  
   .run(function($rootScope, $state){
-    //$rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-    //  $rootScope.toState = toState;
-    //  //window.console.log('to state:', toState);
-    //});
-    //$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
-    //  //window.console.log('state', $state.current.name);
-    //});
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+     $rootScope.toState = toState;
+      $rootScope.fromState = fromState;
+     window.console.log('to state:', toState, toParams);
+    });
+    $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
+     window.console.log('state', $state.current.name, fromParams);
+    });
   })
 ;

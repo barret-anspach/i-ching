@@ -1,5 +1,7 @@
 $black: rgba(0, 0, 0, 0.73);
+$grey: rgb(68, 68, 68);
 $gold: rgba(184, 134, 11, 1);
+$darkGold: desaturate($gold, 30%);
 
 $unit: 1mm;
 
@@ -57,10 +59,17 @@ body, html {
   }
 }
 
+
+////////
+// TEXT
+////////
+
 // Use to display Chinese Unicode characters
 .wen {
   font-family: 'source-han-sans-traditional', sans-serif;
-  font-size: 4em;
+  //font-size: 4em;
+  //font-size: calc(33vmin - 2em - 12pt); // TODO: Design rehash
+  font-size: calc(16vmax - 2em);
   line-height: 1.8;
   font-weight: 400;
   margin: 12pt;
@@ -77,6 +86,191 @@ body, html {
   text-align: center;
 }
 
+.pre-line {
+  white-space: pre-line;
+}
+
+.gold-text {
+  color: $gold;
+}
+
+////////
+// LAYOUT ELEMENTS
+////////
+
+[ui-view] {
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  transform: translateX(0);
+  transition: transform .5s ease;
+  &.at-top {
+    justify-content: flex-start;
+  }
+  &.move-left {
+    overflow-x: hidden;
+    transform: translateX(-25vw);
+  }
+  &.move-right {
+    overflow-x: hidden;
+    transform: translateX(25vw);
+  }
+}
+
+section {
+  flex: 1 1 auto;
+  //margin-bottom: 6em;
+  margin-bottom: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+footer {
+  flex: 0 0 auto;
+  //position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 24pt 24pt 4em;
+  @media screen and (min-height: 600px) {
+    //padding: 54pt;
+  }
+
+  // Layout experiment
+  position: fixed;
+  padding: 0;
+  right: 2em;
+  bottom: 2em;
+  width: auto;
+}
+aside {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 50vw;
+  min-width: 200pt;
+  background: transparent;
+  transition: all .5s ease;
+  opacity: 0;
+  &.aside-right {
+    right: 0;
+    transform: translateX(100%);
+    .aside-content {
+      right: 0;
+    }
+  }
+  &.aside-left {
+    left: 0;
+    transform: translateX(-100%);
+    .aside-content {
+      left: 0;
+      background: $grey;
+    }
+    //header {
+    //  position: absolute;
+    //  top: 1em;
+    //  right: 1em;
+    //}
+    header > h1 {
+      display: inline-block;
+      margin-right: 6pt;
+    }
+    button {
+      border-bottom-color: mix($black, white, 60%);
+      color: mix($black, white, 60%);
+    }
+  }
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .aside-content {
+    position: absolute;
+    display: block;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    background: $gold;
+    padding: 24pt;
+    overflow-y: scroll;
+  }
+  .aside-content header {
+    text-align: center;
+  }
+  .description {
+    margin: 49pt auto 0;
+  }
+  .changing-lines {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: 50pt;
+  }
+  .changing-line {
+    &.line {
+      background: mix($gold, white, 60%);
+      transition: all .33s ease;
+    }
+    &.yin:before {
+      background: $gold;
+    }
+    &:not(.disabled) {
+      cursor: pointer;
+      &:hover,
+      &:focus,
+      &:active {
+        background: white;
+      }
+    }
+    &.active {
+      background: white;
+    }
+    &.disabled {
+      cursor: auto;
+      &.line {
+        background: $darkGold;
+      }
+    }
+  }
+  button {
+    border-bottom-color: mix($gold, white, 60%);
+    color: mix($gold, white, 60%);
+  }
+  button.active {
+    border-bottom-color: white;
+    color: white;
+  }
+  button + button {
+    margin-left: 6pt;
+  }
+  button:hover {
+    border-bottom-color: white;
+    color: white;
+  }
+}
+
+
+////////
+// COMPONENTS
+////////
+
 button {
   cursor: pointer;
   -webkit-appearance: none;
@@ -91,13 +285,20 @@ button {
   transition: .33s ease;
   &:hover,
   &:focus,
-  &:active {
+  &:active,
+  &.active {
     color: black;
     border-bottom-color: black;
   }
   &.inactive {
     opacity: 0.73;
   }
+}
+button h1 {
+  margin-bottom: 0;
+}
+button + button {
+  margin-left: 6pt;
 }
 
 h1.close {
@@ -107,7 +308,6 @@ h1.close {
   font-size: 2em;
   padding-bottom: 3pt;
   border-bottom: 3pt solid transparent;
-  margin-bottom: 16pt;
   width: auto;
   clear: both;
   &:hover,
@@ -115,140 +315,46 @@ h1.close {
   &:focus {
     border-bottom-color: white;
   }
+  &.on-right {
+    text-align: right;
+  }
 }
 
-
-
-
-
-main {
-  position: relative;
+.coins {
+  cursor: pointer;
+  flex: 0 0 auto;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  width: auto;
-  min-height: 100vh;
-  padding: 0;
+  top: 0;
+  right: 100%;
+  width: 96pt;
   margin: 0;
 }
-
-section {
+.coin {
   flex: 0 0 auto;
-  margin-bottom: 6em;
-  //flex: 1 1 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  width: 24pt;
+  height: 24pt;
+  border-radius: 50%;
+  border: 4pt solid $gold;
+  transition: all .33s ease;
+  &.tails {
+    background: $gold;
+  }
+  & + & {
+    margin-left: 12pt;
+  }
+}
+.description-buttons {
   padding: 2em;
-}
-
-footer {
-  position: fixed;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-
-  flex: 0 0 auto;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 24pt;
-  &.unfixed {
-    position: relative;
-  }
-  @media screen and (min-height: 600px) {
-    padding: 54pt;
-  }
-}
-
-aside {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  width: 33vw;
-  min-width: 200pt;
-  max-width: 300pt;
-  color: white;
-  background: $gold;
-  opacity: 0;
-  padding: 2em;
-  transition: all .5s ease;
-  transform: translateX(100%);
-  &.open {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-////////
-// Introductory Page
-////////
-
-section.introduction {
-  .wen {
-    line-height: 1;
-    margin: 12pt 12pt .8em;
-  }
-}
-
-////////
-// Consult: Consider
-////////
-
-section.consider {
-  .gua {
-    margin-top: 54pt;
-  }
-  .trigram {
-    margin-top: 0;
-  }
-}
-
-////////
-// Consult: Result
-////////
-
-section.result {
-  flex: 0 0 auto;
-  position: relative;
-  display: block;
-  height: auto;
-  padding-top: 96pt;
-  padding-bottom: 96pt;
-  margin-bottom: 0;
-  .description {
-    margin: 1.83em 0 0;
-  }
-}
-
-.description {
-  max-width: 324pt;
-  //margin: 1.83em auto 0;
   text-align: center;
-  h1 {
-    margin-bottom: 1em;
-  }
-  .wen {
-    font-size: 1.8em;
-    line-height: 1;
-    margin-top: 24pt;
-    margin-bottom: 12pt;
-  }
-}
-.description-text {
-  margin: 1.83em 0;
-}
-.has-changing-lines {
-  font-weight: 600;
-  color: $gold;
 }
 
+////////
 // Hexagram: Guà
+////////
+
 .gua {
   flex: 0 0 auto;
   display: flex;
@@ -329,10 +435,11 @@ section.result {
   &:before {
     content: '';
     position: absolute;
-    left: 36pt;
+    left: 50%;
     top: -2pt;
     bottom: 0;
-    width: 24pt;
+    transform: translateX(-50%);
+    width: 25%;
     height: 10pt;
     background: white;
   }
@@ -375,34 +482,131 @@ section.result {
 
 
 ////////
-// COINS
+// Introductory Page
 ////////
-.coins {
-  cursor: pointer;
-  flex: 0 0 auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+
+section.introduction {
+  .wen {
+    line-height: 1;
+    //margin: 12pt 12pt .8em;
+    margin: 12pt 12pt 24pt;
+  }
+}
+
+
+////////
+// Consult: Consider
+////////
+
+section.consider {
+  .gua {
+    margin-top: 54pt;
+  }
+  .trigram {
+    margin-top: 0;
+  }
+}
+
+
+////////
+// Consult: Result
+////////
+
+section.result {
+  position: relative;
+  display: block;
+  height: auto;
+  padding-top: 96pt;
+  padding-bottom: 96pt;
+  margin-bottom: 0;
+  .description, .description-text {
+    margin: 1.83em 0 0;
+  }
+}
+.description {
+  max-width: 324pt;
+
+
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: space-around;
+  text-align: center;
+  & > h1 {
+    width: auto;
+    flex: 1 1 (100% / 3);
+  }
+
+  h1 {
+    margin-bottom: 1em;
+  }
+  .wen {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+  }
+  h1.wen {
+    //font-size: calc(33vmin - 2em - 12pt); // TODO: Clean up design
+  }
+  p.wen {
+    //font-size: calc(33vmin - 2em - 12pt) / 12; // TODO: Clean up design
+  }
+}
+.description-text {
+  margin: 1.83em 0;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
+.description-buttons {
+  & > h1 {
+    display: inline-block;
+    margin-right: 6pt;
+  }
+  button {
+    border-bottom-color: $gold;
+  }
+  button h1 {
+    color: $gold;
+    margin-bottom: 0;
+  }
+  button:hover {
+    border-bottom-color: $darkGold;
+  }
+  button:hover h1 {
+    color: $darkGold;
+  }
+}
+.wen.tuan {
+  position: fixed;
   top: 0;
-  right: 100%;
-  width: 96pt;
-  margin: 0;
+  right: 0;
+  max-height: 100vh;
+  font-size: 1.625em;
+  text-align: left;
+  line-height: 1.5;
+  letter-spacing: .25em;
+  writing-mode: vertical-rl;
 }
-.coin {
-  flex: 0 0 auto;
-  width: 24pt;
-  height: 24pt;
-  border-radius: 50%;
-  border: 4pt solid $gold;
-  transition: all .33s ease;
-  &.tails {
-    background: $gold;
-  }
-  & + & {
-    margin-left: 12pt;
-  }
+.has-changing-lines {
+  font-weight: 600;
+  color: $gold;
 }
+.pull-right {
+  margin-left: auto;
+  align-self: flex-end;
+}
+.pull-left {
+  margin-right: auto;
+  align-self: flex-start;
+}
+.pull-center {
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
+
 
 // injector
 // endinjector

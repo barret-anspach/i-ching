@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>iChing</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <script src="https://use.typekit.net/ckw0fzy.js"></script>
@@ -28,7 +28,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view ng-class="{'to-next': toState.name = 'consult'}"></div>
+    <div ui-view ng-class="{'to-next': toState.name === 'iChing.consult.consider'}"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!--<script>-->

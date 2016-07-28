@@ -1,13 +1,14 @@
 <main>
   <section class="consider text-align-center">
     <div class="description">
-      <p>Consider your thoughts carefully, then toss the coins below for each of your hexagram's six lines.</p>
+      <p>Consider your thoughts carefully, then divide the yarrow stalks below for each of your hexagram's six
+        lines.</p>
     </div>
 
     <div class="oracle">
       <div class="gua">
         <div class="line"
-             ng-repeat="line in ic.changingHexagram.lines track by $index"
+             ng-repeat="line in consult.changingHexagram.lines track by $index"
              ng-class="{'yin': line.value == 0,
                     'yang': line.value == 1,
                     'changing': line.changing,
@@ -15,28 +16,15 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <footer class="text-align-center">
-    <!--<button ng-click="ic.tossCoins()"-->
-            <!--ng-show="ic.changingHexagram.isComplete">-->
-      <!--<h1>See result</h1>-->
-    <!--</button>-->
-    <div class="coins"
-         ng-click="ic.tossCoins()"
-         ng-show="ic.changingHexagram.lines.length === 0">
-      <div class="coin tails"></div>
-      <div class="coin tails"></div>
-      <div class="coin tails"></div>
-    </div>
-    <div class="coins"
-         ng-repeat="line in ic.changingHexagram.lines track by $index"
-         ng-show="$index == (ic.changingHexagram.lines.length - 1) && !ic.changingHexagram.isComplete"
-         ng-click="ic.tossCoins()">
-      <div class="coin"
-           ng-repeat="coin in line.coins track by $index"
-           ng-class="{'tails': coin === 2}">
+    <footer class="text-align-center">
+      <button ng-click="consult.divideYarrow()"
+              ng-show="!consult.changingHexagram.isComplete">
+        <h1>Divide Yarrow Stalks</h1>
+      </button>
+      <div class="yarrow-stalks">
+
       </div>
-    </div>
-  </footer>
+    </footer>
+  </section>
 </main>

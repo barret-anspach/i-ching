@@ -1,20 +1,19 @@
-<main>
+<main ng-class="{'to-consult': transition.from == 'main' && transition.to == 'consult.consider'}">
   <section class="introduction text-align-center">
     <h2 class="wen">易經</h2>
 
     <h1>I Ching</h1>
 
     <div class="description">
-      <p>An ancient divination text, the I Ching is also referred to as the "Book of Changes." Consult the manual when an
-        important decision is around the corner, or to see things from a different angle.</p>
+      <p>An ancient divination text, the I Ching is also referred to as the "Book of Changes." Consult the manual when
+        an important decision is around the corner, or to see things from a different angle.</p>
     </div>
 
+    <footer class="text-align-center">
+      <button ui-sref="iChing.consult.consider">
+        <h1>Begin</h1>
+      </button>
+    </footer>
+
   </section>
-
-  <footer class="text-align-center">
-    <button ui-sref="consult.consider">
-      <h1>Begin</h1>
-    </button>
-  </footer>
-
 </main>

@@ -1,9 +1,10 @@
-<main>
+<main class="at-top"
+      ng-class="{'move-left': hex.menuOpen, 'move-right': hex.descriptionOpen}">
   <section class="result">
     <div class="oracle">
       <div class="gua">
         <div ng-repeat="line in hex.hexagram.lines track by $index"
-             ng-click="line.changing ? ic.figures.toggleMenu() : null;"
+             ng-click="line.changing ? hex.toggleMenu($index, hex.hexagram.props.changing) : null;"
              ng-class="{'yin': line.value == 0,
                       'yang': line.value == 1,
                       'changing': line.changing,
@@ -17,35 +18,86 @@
       </div>
     </div>
 
+    <!--<p class="wen tuan text-align-left">{{hex.hexagram.props.tuan}}{{hex.hexagram.props.xiangChuan}}</p>-->
+
     <div class="description">
-      <h1>{{hex.hexagram.props.number}}</h1>
-      <h1>{{hex.hexagram.props.name}}</h1>
-      <h1 class="wen">{{hex.hexagram.props.wen}}</h1>
+      <h1 class="text-align-center">{{hex.hexagram.props.number}}</h1>
+      <h1 class="text-align-center">{{hex.hexagram.props.name}}</h1>
+      <h1 class="wen text-align-center">{{hex.hexagram.props.guaMing}}</h1>
 
       <div class="description-text">
-        <p ng-bind="hex.hexagram.props.says"></p>
-        <p ng-bind="hex.hexagram.props.sees"></p>
-        <p ng-bind="hex.hexagram.props.suggests"></p>
-      </div>
-      <div class="has-changing-lines" ng-if="hex.anyChangingLines">
-        <p>Your hexagram has changing lines. To discover more, tap any line on your hexagram with a mustard dot.</p>
+        <p ng-bind-html="hex.hexagram.props.says"></p>
       </div>
 
+      <!--<div class="has-changing-lines" ng-if="hex.anyChangingLines">-->
+        <!--<p>Your hexagram has changing lines, each labelled with a mustard dot. Tap one to learn more.</p>-->
+      <!--</div>-->
     </div>
-  </section>
 
-  <footer class="unfixed">
-    <button ng-click="ic.reset();">
-      <h1>Ask another question</h1>
-    </button>
-  </footer>
+    <div class="description-buttons">
+      <h1 class="gold-text">The Book</h1>
+      <button ng-repeat="description in hex.descriptions track by $index"
+              ng-click="hex.toggleDescriptionMenu(description.name)">
+        <h1>{{description.name}}</h1>
+      </button>
+    </div>
+
+    <footer>
+      <button ng-click="consult.reset();">
+        <h1>Ask another question</h1>
+      </button>
+    </footer>
+  </section>
 </main>
 
-<aside ng-class="{'open': ic.figures.menuOpen}">
-  <h1 class="close" ng-click="ic.figures.toggleMenu();">&times;</h1>
-  <h1>Some information about your changing line:</h1>
-  <div ng-repeat="changing in hex.hexagram.props.changing track by $index">
-    <h1>{{changing.line}}</h1>
-    <p>{{changing.meaning}}</p>
+<aside class="aside-left" ng-class="{'open': hex.descriptionOpen}">
+  <div class="aside-content">
+    <h1 class="close on-right" ng-click="hex.toggleDescriptionMenu();">&times;</h1>
+    <header>
+      <h1>The Book</h1>
+      <button ng-repeat="description in hex.descriptions track by $index"
+              ng-class="{'active': description.isSelected}"
+              ng-click="hex.toggleDescription(description.name)">
+        <h1>{{description.name}}</h1>
+      </button>
+    </header>
+    <div class="description pre-line"
+         ng-repeat="description in hex.descriptions track by $index"
+         ng-show="description.isSelected">
+      <p ng-bind-html="hex.hexagram.props[description.slug]"></p>
+    </div>
+  </div>
+</aside>
+
+<aside class="aside-right" ng-class="{'open': hex.menuOpen}">
+  <div class="aside-content">
+    <h1 class="close" ng-click="hex.toggleMenu();">&times;</h1>
+    <div class="gua changing-lines">
+      <div class="line changing-line"
+           ng-repeat="changing in hex.hexagram.props.changing track by $index"
+           ng-class="{'disabled': !changing.inHexagram,
+                      'active': changing.isSelected,
+                      'yin': hex.hexagram.props.sequence[$index] === 0,
+                      'yang': hex.hexagram.props.sequence[$index] === 1}"
+           ng-click="hex.toggleSelectionInArray($index, hex.hexagram.props.changing);">
+      </div>
+    </div>
+    <div class="description"
+         ng-repeat="changing in hex.hexagram.props.changing track by $index"
+         ng-show="changing.isSelected">
+      <h1 class="text-align-center"> {{changing.value}}
+        <ng-pluralize count="changing.line" when="
+          { '0': 'at the beginning',
+            '1': 'in the second place',
+            '2': 'in the third place',
+            '3': 'in the fourth place',
+            '4': 'in the fifth place',
+            '5': 'at the top' }">
+        </ng-pluralize>
+        means:
+      </h1>
+      <p ng-bind-html="changing.meaning">
+      </p>
+    </div>
   </div>
 </aside>
